@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/online_payment?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    minimum-idle: 5   # 最小连接数
+    maximum-pool-size: 500  # 连接池最大连接数，默认是10
+    idle-timeout: 180000   # 空闲连接存活最大时间，默认600000（10分钟）
+    max-lifetime: 1800000  # 连接池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+    connection-timeout: 30000  # 数据库连接超时时间,默认30秒，即30000
+
+server:
+  port: 9107
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000  # 最大线程数
+    accept-count: 1000  # 队列长度
+    max-connections: 2000  # 最大连接数
